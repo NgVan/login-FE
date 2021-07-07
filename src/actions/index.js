@@ -16,7 +16,7 @@ export const authFacebook = (data) => {
     return async (dispatch) => {
         console.log("[ActionCreator] Facebook signUp called")
         console.log("we received from FB", data);
-        const res = await axios.post('http://localhost:3000/users/auth/facebook',{access_token:data})
+        const res = await axios.post('https://be-nvb-login.herokuapp.com/users/auth/facebook',{access_token:data})
         console.log ('res ', res)
 
         console.log("[ActionCreator] Facebook_signUp dispatch an action!")
@@ -35,7 +35,7 @@ export const authGoogle = (data) => {
     return async (dispatch) => {
         console.log("[ActionCreator] Google signUp called")
         console.log("we received from  GG", data);
-        const res = await axios.post('http://localhost:3000/users/auth/google',{access_token:data})
+        const res = await axios.post('https://be-nvb-login.herokuapp.com/users/auth/google',{access_token:data})
         console.log ('res', res)
 
         console.log("[ActionCreator] Google_signUp dispatch an action!")
@@ -60,7 +60,7 @@ export const signUp = (data) => {
     return async (dispatch) => {
         try {
             console.log("[ActionCreator] signUp called")
-            const res = await axios.post('http://localhost:3000/users/signup',data)
+            const res = await axios.post('https://be-nvb-login.herokuapp.com/users/signup',data)
             console.log ('res', res)
 
             console.log("[ActionCreator] signUp dispatch an action!")
@@ -101,7 +101,7 @@ export const signIn = (data) => {
     return async (dispatch) => {
         try {
             console.log("[ActionCreator] signIn called")
-            const res = await axios.post('http://localhost:3000/users/signin',data)
+            const res = await axios.post('https://be-nvb-login.herokuapp.com/users/signin',data)
             console.log ('res', res)
 
             console.log("[ActionCreator] signIn dispatch an action!")
@@ -138,7 +138,7 @@ export const getSecret = () => {
     return async (dispatch) => {
         try {
             console.log("[ActionCreator] Call to BE's secret")
-            const res = await axios.get('http://localhost:3000/users/secret')
+            const res = await axios.get('https://be-nvb-login.herokuapp.com/users/secret')
             console.log ('res of getSecret action', res)
 
             dispatch({
