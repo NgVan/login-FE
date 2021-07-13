@@ -22,8 +22,8 @@ class SignUp extends Component {
         console.log('formData', formData)
         // we need to call some actioncreator
         await this.props.signUp(formData)
-        if(!this.props.errorMessage)
-            this.props.history.push('/dashboard')
+        // if(!this.props.errorMessage)
+        //     this.props.history.push('/dashboard')
     }
 
     async responseFacebook (response) {
@@ -69,6 +69,11 @@ class SignUp extends Component {
                         <div className = "alert alert-danger">
                             {this.props.errorMessage}
                         </div> : null}
+
+                        {this.props.successMessage? 
+                        <div className = "alert alert-success">
+                            {this.props.successMessage}
+                        </div> : null}
                         
                         <button type="submit" className = 'btn btn-primary'>Sign Up</button>
                     </form>
@@ -103,7 +108,8 @@ class SignUp extends Component {
 
 function mapStateToProps(state) {
     return {
-        errorMessage: state.auth.errorMessage
+        errorMessage: state.auth.errorMessage,
+        successMessage: state.auth.successMessage
     }
 }
 
