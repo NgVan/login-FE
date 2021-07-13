@@ -92,11 +92,14 @@ class SignUp extends Component {
                         />
                         <GoogleLogin
                             clientId="809857162407-ln9r35b6ak4q0o52kdav5458fvur0o4d.apps.googleusercontent.com"
+                            render={renderProps => (
+                                <button className="btn btn-outline-danger" onClick={renderProps.onClick} disabled={renderProps.disabled}>Google</button>
+                              )}
                             buttonText="Google"
                             icon="false"
                             onSuccess={this.responseGoogle}
                             onFailure={this.responseGoogle}
-                            className="btn btn-outline-danger"
+                            
                         />
                     </div>
                 </div>
@@ -107,6 +110,7 @@ class SignUp extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log("state: ", state);
     return {
         errorMessage: state.auth.errorMessage,
         successMessage: state.auth.successMessage

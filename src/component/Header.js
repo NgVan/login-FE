@@ -25,11 +25,12 @@ class Header extends Component {
             <ul className="navbar-nav ml-auto">
                 { !this.props.isAuth ? 
                     [<li className="nav-item" key="signup">
-                        <Link className="fas fa-user-plus nav-link" to="/Signup">Sign Up</Link>
+                        <Link className="fas fa-user-plus nav-link" to="/Signup"> Sign Up</Link>
                     </li>,
                     <li className="nav-item" key="signin">
-                        <Link className="fas fa-user nav-link" to="/Signin">Sign In</Link>
+                        <Link className="fas fa-user nav-link" to="/Signin"> Sign In</Link>
                     </li>] :null}
+                    
                 { this.props.isAuth ? 
                     <li className="nav-item">
                         <Link className="nav-link" to="/Signout" onClick={this.signOut}>Signout</Link>
